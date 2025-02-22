@@ -13,27 +13,53 @@
 
       <v-row>
         <v-col cols="12">
-          <v-card
-            class="py-4"
-            color="surface-variant"
-            image="https://cdn.vuetifyjs.com/docs/images/one/create/feature.png"
-            prepend-icon="mdi-rocket-launch-outline"
-            rounded="lg"
-            variant="outlined"
-          >
-            <template #image>
-              <v-img position="top right" />
-            </template>
-
+          <v-card class="py-5" color="surface-variant" rounded="lg" variant="outlined">
             <template #title>
-              <h2 class="text-h5 font-weight-bold">Get started</h2>
+              <h2 class="text-h3 font-weight-bold mb-2">Project Requirements</h2>
             </template>
-
             <template #subtitle>
               <div class="text-subtitle-1">
-                Replace this page by removing <v-kbd>{{ `<HelloWorld />` }}</v-kbd> in
-                <v-kbd>pages/index.vue</v-kbd>.
+                <div class="text-h3 text-blue mb-3">General principles:</div>
+
+                <v-list-item-title class="text-wrap">
+                  Modern mobile-friendly website with minimalistic design, no need for fancy
+                  animation and effects. No need to overcomplicate the website, there is no shop
+                  (yet) and backend is not hooked up
+                </v-list-item-title>
+
+                <v-list-item-title class="text-wrap">
+                  Mix of blue and gray colors should prevail (consistent with the logo). I guess
+                  darker background looks better, but I would not argue
+                </v-list-item-title>
+                <v-list-item-title>No extra paid packages should be used</v-list-item-title>
+                <v-list-item-title>
+                  Repository is already integrated with Vercel
+                </v-list-item-title>
+
+                <div class="text-h3 text-blue my-3">Navigation:</div>
+                <v-list-item-title> Home </v-list-item-title>
+                <v-list-item-title>Products </v-list-item-title>
+                <v-list-item-title> About Us</v-list-item-title>
+                <v-list-item-subtitle>Team</v-list-item-subtitle>
+                <v-list-item-subtitle>History</v-list-item-subtitle>
+                <v-list-item-subtitle>Gallery</v-list-item-subtitle>
+                <v-list-item-title> Contact us </v-list-item-title>
               </div>
+
+              <div class="text-h3 text-blue my-3">Other requirements:</div>
+              <v-list-item-title>Multiple languages support</v-list-item-title>
+              <v-list-item-title class="text-wrap">
+                Admin functionality would be a plus, so there would be no need to hardcode info and
+                upload/update photos
+              </v-list-item-title>
+
+              <div class="text-h3 text-blue my-3">Useful info:</div>
+              <v-list-item-title> Company logos are located in src/assets/logo </v-list-item-title>
+              <v-list-item-title> FYI: Font in the logo's text is Montserrat </v-list-item-title>
+              <v-list-item-title class="text-wrap">
+                Photos will be provided and text for about us will be provided later. For now any
+                dummy text and photos can be used
+              </v-list-item-title>
             </template>
 
             <v-overlay opacity=".12" scrim="primary" contained model-value persistent />

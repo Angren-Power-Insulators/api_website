@@ -7,7 +7,30 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router/auto'
 import { setupLayouts } from 'virtual:generated-layouts'
-import { routes } from 'vue-router/auto-routes'
+// import { routes } from 'vue-router/auto-routes'
+
+const routes = [
+  {
+     path: "/",
+     component: () => import("@/components/TopNavigation.vue"),
+     children: [
+    {
+        path: "",
+        name: "Home",
+        component: () => import("@/components/HomePage.vue"),
+
+    }
+     ,
+       {
+    path: "/catalogue/",
+    name: "Catalogue",
+    component: () => import("@/components/ProductCatalogue.vue"),
+  },
+],
+  },
+
+] 
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

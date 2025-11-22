@@ -7,6 +7,7 @@
       <v-img
         height="40"
         src="@/assets/logo/logo_api.png"
+        @click="goHome"
       />
 
       <v-spacer></v-spacer>
@@ -48,6 +49,13 @@
 
 <script setup>
 import { ref } from "vue"
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const goHome = () => {
+  router.push("/")
+};
 
 const drawer = ref(false)
 </script>

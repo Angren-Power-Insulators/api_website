@@ -1,6 +1,6 @@
 <template>
   <v-carousel
-    height="400"
+    height="500"
     show-arrows="hover"
     cycle
     hide-delimiter-background
@@ -8,33 +8,37 @@
     <v-carousel-item
       v-for="(slide, i) in slides"
       :key="i"
+      :src="slide.src"
     >
-      <v-sheet
-        :color="colors[i]"
-        height="100%"
-      >
-        <div class="d-flex fill-height justify-center align-center">
-          <div class="text-h2">
-            {{ slide }} Slide
-          </div>
-        </div>
-      </v-sheet>
+
     </v-carousel-item>
   </v-carousel>
 </template>
+
 <script setup>
-  const colors = [
-    'indigo',
-    'warning',
-    'pink darken-2',
-    'red lighten-1',
-    'deep-purple accent-4',
-  ]
   const slides = [
-    'First',
-    'Second',
-    'Third',
-    'Fourth',
-    'Fifth',
+    {
+      src: new URL("@/assets/factory/ball_mills.jpg", import.meta.url).href,
+    },
+    {
+      src: new URL("@/assets/factory/multi_ipu.jpg", import.meta.url).href,
+    },
+    {
+      src: new URL("@/assets/factory/io_triple.jpg", import.meta.url).href,
+    },
+    {
+      src: new URL("@/assets/factory/kiln_1.jpg", import.meta.url).href,
+    },
+        {
+      src: new URL("@/assets/factory/kiln_2.jpg", import.meta.url).href,
+    },
   ]
 </script>
+
+<style>
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ensures image fills the slide */
+}
+</style>

@@ -1,5 +1,7 @@
 <template>
-  <v-carousel
+  <div class="bg-grey-darken-4">
+
+    <v-carousel
     height="500"
     show-arrows="hover"
     cycle
@@ -15,15 +17,17 @@
   </v-carousel>
 
   <ProductCatalogue></ProductCatalogue>
+  </div>
+
 </template>
 
 <script setup>
   const slides = [
     {
-      src: new URL("@/assets/factory/ball_mills.jpg", import.meta.url).href,
+      src: new URL("@/assets/factory/multi_ipu.jpg", import.meta.url).href,
     },
     {
-      src: new URL("@/assets/factory/multi_ipu.jpg", import.meta.url).href,
+      src: new URL("@/assets/factory/ball_mills.jpg", import.meta.url).href,
     },
     {
       src: new URL("@/assets/factory/io_triple.jpg", import.meta.url).href,

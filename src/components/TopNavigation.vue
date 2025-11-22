@@ -1,14 +1,9 @@
 <template>
   <v-app>
-
     <!-- Top Bar -->
     <v-app-bar flat color="white">
       <!-- Logo -->
-      <v-img
-        height="40"
-        src="@/assets/logo/logo_api.png"
-        @click="goHome"
-      />
+      <v-img height="40" src="@/assets/logo/logo_api.png" class="cursor-pointer" @click="goHome" />
 
       <v-spacer></v-spacer>
 
@@ -16,30 +11,30 @@
       <div class="d-none d-md-flex">
         <v-btn text to="/" exact>ГЛАВНАЯ</v-btn>
         <v-btn text to="/catalogue">КАТАЛОГ</v-btn>
+        <v-btn text to="/about">О НАС</v-btn>
         <v-btn text to="/contacts">КОНТАКТЫ</v-btn>
       </div>
 
       <!-- Mobile Hamburger -->
-      <v-btn
-        icon
-        class="d-md-none"
-        @click="drawer = true"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      <v-btn icon class="d-md-none" @click="drawer = !drawer">
+  <v-icon>mdi-menu</v-icon>
+</v-btn>
+
     </v-app-bar>
 
     <!-- Mobile Drawer -->
-    <v-navigation-drawer
-      v-model="drawer"
-      temporary
-      location="right"
-    >
+    <v-navigation-drawer v-model="drawer" temporary location="right">
       <v-list>
         <v-list-item to="/" exact title="ГЛАВНАЯ" @click="drawer = false" />
         <v-list-item to="/catalogue" title="КАТАЛОГ" @click="drawer = false" />
+        <v-list-item to="/about" title="О НАС" @click="drawer = false" />
         <v-list-item to="/contacts" title="КОНТАКТЫ" @click="drawer = false" />
       </v-list>
+
+
+      <v-btn icon @click="drawer = false">
+        <v-icon>mdi-close</v-icon>
+      </v-btn>
     </v-navigation-drawer>
 
     <!-- Main page content -->
@@ -48,14 +43,14 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
-import { useRouter } from "vue-router";
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
-const router = useRouter();
+const router = useRouter()
 
 const goHome = () => {
-  router.push("/")
-};
+  router.push('/')
+}
 
 const drawer = ref(false)
 </script>

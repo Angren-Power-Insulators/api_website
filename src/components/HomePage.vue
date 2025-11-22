@@ -13,6 +13,8 @@
 
     </v-carousel-item>
   </v-carousel>
+
+  <ProductCatalogue></ProductCatalogue>
 </template>
 
 <script setup>

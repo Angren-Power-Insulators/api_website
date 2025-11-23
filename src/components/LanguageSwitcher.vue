@@ -1,10 +1,12 @@
 <template>
   <v-select
-    class="mt-4"
+    class="mb-4"
     style="max-width: 120px"
     bg-color="transparent"
     menu-icon=""
     v-model="selectedCountry"
+    variant="plain"
+    hide-details
     :items="[
       { title: 'РУ', value: 'ru' },
       { title: 'ЎЗ', value: 'uz' },

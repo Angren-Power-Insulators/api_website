@@ -17,10 +17,15 @@
     </a>
 
     <!-- Phone number -->
-    <div class="ml-2 text-blue-darken-4 font-weight-semibold" style="user-select: none">
-      <v-icon icon="mdi-phone" color="info"></v-icon>
-      (998)99-443-1177
-    </div>
+    <a href="tel:+998994431177" style="text-decoration: none; color: inherit;">
+  <div class="d-flex align-center ml-2 text-blue-darken-4 font-weight-semibold" style="user-select: none; cursor: pointer;">
+    <v-icon color="info" class="mr-1">mdi-phone</v-icon>
+    (998) 99-443-1177
+  </div>
+</a>
+
+
+
 
     <!-- Logo + Company name + Year (disappear on mobile) -->
     <div

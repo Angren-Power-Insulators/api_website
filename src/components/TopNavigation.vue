@@ -7,6 +7,8 @@
 
       <v-spacer></v-spacer>
 
+      <LanguageSwitcher />
+
       <!-- Desktop Menu -->
       <div class="d-none d-md-flex">
         <v-btn text to="/" exact>ГЛАВНАЯ</v-btn>
@@ -17,8 +19,8 @@
 
       <!-- Mobile Hamburger -->
       <v-btn icon class="d-md-none" @click="drawer = !drawer">
-  <v-icon>mdi-menu</v-icon>
-</v-btn>
+        <v-icon>mdi-menu</v-icon>
+      </v-btn>
 
     </v-app-bar>
 
@@ -52,5 +54,14 @@ const goHome = () => {
   router.push('/')
 }
 
+const languages = [
+  { code: "uz", label: "Uzbek", flag: "https://flagcdn.com/uz.svg" },
+  { code: "ru", label: "Russian", flag: "https://flagcdn.com/ru.svg" },
+  { code: "en", label: "English", flag: "https://flagcdn.com/gb.svg" },
+]
+
 const drawer = ref(false)
+
+
+
 </script>

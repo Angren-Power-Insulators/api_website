@@ -16,7 +16,7 @@
     </v-carousel-item>
   </v-carousel>
 
-  <ProductCatalogue></ProductCatalogue>
+  <ProductCatalogueDialog/>
   </div>
 
 </template>

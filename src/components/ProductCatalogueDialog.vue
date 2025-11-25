@@ -50,7 +50,7 @@
               variant="tonal"
               class="mx-auto my-2"
               size="large"
-              :to="`/catalogue/${product.id}`"
+                 @click="openDialog(product)"
             >
               Подробно
             </v-btn>
@@ -60,12 +60,70 @@
       </v-col>
     </v-row>
 
+<v-dialog v-model="dialog" max-width="700" >
+  <v-card class="pa-4">
+
+    <!-- Close button -->
+    <v-btn
+      icon="mdi-close"
+      class="ml-auto mb-2"
+      variant="text"
+      @click="dialog = false"
+    />
+
+    <v-row>
+      <v-col cols="12" md="5">
+        <v-img
+          :src="selectedProduct?.image"
+          height="200"
+          class="rounded-lg"
+        />
+      </v-col>
+
+      <v-col cols="12" md="7">
+        <h2 class="text-h6 mb-2">{{ selectedProduct?.name }}</h2>
+        <h4 class="text-h6 mb-2">{{ selectedProduct?.specifics }}</h4>
+
+        <p>{{ selectedProduct?.description }}</p>
+      </v-col>
+    </v-row>
+
+    <!-- Table -->
+    <v-table class="mt-4">
+      <tbody>
+        <tr v-for="row in selectedProduct?.table" :key="row.label">
+          <td><strong>{{ row.label }}</strong></td>
+          <td>{{ row.value }}</td>
+        </tr>
+      </tbody>
+    </v-table>
+
+    <v-card-actions>
+      <v-spacer />
+      <v-btn color="primary" @click="dialog = false">Закрыть</v-btn>
+    </v-card-actions>
+
+  </v-card>
+</v-dialog>
+
   </v-container>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
 import products from "@/data/products.js";
+
+
+const dialog = ref(false)
+const selectedProduct = ref(null)
+
+function openDialog(product) {
+  selectedProduct.value = product
+  dialog.value = true
+}
 </script>
+
 
 <style scoped>
 /* Extra mobile optimization */

@@ -89,28 +89,88 @@
         </v-col>
       </v-row>
 
-      <!-- Map -->
-      <v-sheet class="mt-8 rounded-xl overflow-hidden" elevation="2">
-        <iframe
-          allowfullscreen
-          height="360"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          :src="mapSrc"
-          style="border:0; width: 100%; display: block;"
-          :title="t('contacts.addressLabel')"
-        />
-      </v-sheet>
+      <v-row class="mt-2">
+        <!-- Quote request form -->
+        <v-col cols="12" md="6">
+          <v-card class="pa-6 h-100" rounded="xl" variant="outlined">
+            <h2 class="text-h6 font-weight-bold mb-1">{{ t('contacts.form.title') }}</h2>
+            <p class="text-body-2 text-medium-emphasis mb-6">{{ t('contacts.form.subtitle') }}</p>
+
+            <v-form ref="formRef" @submit.prevent="submitViaWhatsapp">
+              <v-text-field
+                v-model="form.name"
+                class="mb-1"
+                :label="t('contacts.form.name')"
+                :rules="[v => !!v?.trim() || t('contacts.form.nameRequired')]"
+              />
+              <v-text-field
+                v-model="form.phone"
+                class="mb-1"
+                :label="t('contacts.form.phone')"
+                :rules="[v => !!v?.trim() || t('contacts.form.phoneRequired')]"
+                type="tel"
+              />
+              <v-select
+                v-model="form.product"
+                class="mb-1"
+                :items="productOptions"
+                item-title="label"
+                item-value="value"
+                :label="t('contacts.form.product')"
+              />
+              <v-textarea
+                v-model="form.message"
+                :label="t('contacts.form.message')"
+                rows="3"
+              />
+
+              <v-btn
+                block
+                color="success"
+                prepend-icon="mdi-whatsapp"
+                size="large"
+                type="submit"
+                variant="flat"
+              >
+                {{ t('contacts.form.submit') }}
+              </v-btn>
+
+              <p class="text-caption text-medium-emphasis text-center mt-4 mb-0">
+                {{ t('contacts.form.emailAlt') }}
+                <a class="text-primary text-decoration-none font-weight-medium" :href="`mailto:${EMAIL}`">{{ EMAIL }}</a>
+              </p>
+            </v-form>
+          </v-card>
+        </v-col>
+
+        <!-- Map -->
+        <v-col cols="12" md="6">
+          <v-sheet class="rounded-xl overflow-hidden h-100" elevation="2">
+            <iframe
+              allowfullscreen
+              height="100%"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              :src="mapSrc"
+              style="border:0; width: 100%; display: block; min-height: 360px;"
+              :title="t('contacts.addressLabel')"
+            />
+          </v-sheet>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
 
 <script setup>
+import { reactive, ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { usePageSeo } from '@/composables/usePageSeo'
+import { useLocalizedProducts } from '@/composables/useLocalizedProducts'
 import { PHONE_TEL, PHONE_DISPLAY, EMAIL, WHATSAPP_URL, TELEGRAM_URL, LOCATION_LAT, LOCATION_LNG } from '@/constants'
 
 const { t } = useI18n()
+const { localizedProducts } = useLocalizedProducts()
 
 const mapSrc = `https://www.google.com/maps?q=${LOCATION_LAT},${LOCATION_LNG}&z=17&output=embed`
 
@@ -119,6 +179,30 @@ usePageSeo(() => ({
   description: t('contacts.description'),
   path: '/contacts',
 }))
+
+const formRef = ref(null)
+const form = reactive({ name: '', phone: '', product: '', message: '' })
+
+const productOptions = computed(() => [
+  { value: '', label: t('contacts.form.productAny') },
+  ...localizedProducts.value.map(p => ({ value: p.name, label: p.name })),
+])
+
+async function submitViaWhatsapp () {
+  const { valid } = await formRef.value.validate()
+  if (!valid) return
+
+  const lines = [
+    t('contacts.form.whatsappIntro'),
+    `${t('contacts.form.name')}: ${form.name}`,
+    `${t('contacts.form.phone')}: ${form.phone}`,
+  ]
+  if (form.product) lines.push(`${t('contacts.form.product')}: ${form.product}`)
+  if (form.message?.trim()) lines.push(`${t('contacts.form.message')}: ${form.message.trim()}`)
+
+  const url = `${WHATSAPP_URL}?text=${encodeURIComponent(lines.join('\n'))}`
+  window.open(url, '_blank', 'noopener,noreferrer')
+}
 </script>
 
 <style scoped>

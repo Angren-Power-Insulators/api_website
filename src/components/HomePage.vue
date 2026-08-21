@@ -177,27 +177,27 @@ usePageSeo(() => ({
   path: '/',
 }))
 
-const factoryImage = new URL('@/assets/factory/ball_mills.jpg', import.meta.url).href
+const factoryImage = new URL('@/assets/factory/ball_mills.webp', import.meta.url).href
 
 const slides = [
   {
-    src: new URL('@/assets/factory/multi_ipu.jpg', import.meta.url).href,
+    src: new URL('@/assets/factory/multi_ipu.webp', import.meta.url).href,
     alt: 'Angren Power Insulators production line',
   },
   {
-    src: new URL('@/assets/factory/ball_mills.jpg', import.meta.url).href,
+    src: new URL('@/assets/factory/ball_mills.webp', import.meta.url).href,
     alt: 'Ball mills used in porcelain insulator production',
   },
   {
-    src: new URL('@/assets/factory/io_triple.jpg', import.meta.url).href,
+    src: new URL('@/assets/factory/io_triple.webp', import.meta.url).href,
     alt: 'Support insulators at the factory',
   },
   {
-    src: new URL('@/assets/factory/kiln_1.jpg', import.meta.url).href,
+    src: new URL('@/assets/factory/kiln_1.webp', import.meta.url).href,
     alt: 'Kiln used to fire porcelain insulators',
   },
   {
-    src: new URL('@/assets/factory/kiln_2.jpg', import.meta.url).href,
+    src: new URL('@/assets/factory/kiln_2.webp', import.meta.url).href,
     alt: 'Kiln used to fire porcelain insulators',
   },
 ]

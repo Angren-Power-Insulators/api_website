@@ -52,7 +52,13 @@
     "viewDetails": "View details",
     "search": "Search products…",
     "resultsCount": "{count} products found",
-    "noResults": "No products match your search."
+    "noResults": "No products match your search.",
+    "categories": {
+      "all": "All",
+      "bushing": "Bushing",
+      "pin": "Pin",
+      "support": "Support"
+    }
   },
   "product": {
     "back": "Back",
@@ -91,7 +97,21 @@
     "quickTitle": "Get in Touch Instantly",
     "callNow": "Call Now",
     "whatsapp": "WhatsApp",
-    "telegram": "Telegram"
+    "telegram": "Telegram",
+    "form": {
+      "title": "Request a Quote",
+      "subtitle": "Tell us what you need and we'll reply on WhatsApp.",
+      "name": "Your Name",
+      "phone": "Phone Number",
+      "product": "Product of Interest",
+      "productAny": "Not sure / general inquiry",
+      "message": "Message",
+      "submit": "Send via WhatsApp",
+      "emailAlt": "Prefer email? Write to us at",
+      "nameRequired": "Please enter your name",
+      "phoneRequired": "Please enter your phone number",
+      "whatsappIntro": "New quote request from the website:"
+    }
   },
   "footer": {
     "rights": "All rights reserved.",

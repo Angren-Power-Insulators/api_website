@@ -69,13 +69,13 @@ usePageSeo(() => ({
   path: '/about',
 }))
 
-const heroImage = new URL('@/assets/factory/kiln_1.jpg', import.meta.url).href
+const heroImage = new URL('@/assets/factory/kiln_1.webp', import.meta.url).href
 
 const gallery = [
-  { src: new URL('@/assets/factory/multi_ipu.jpg', import.meta.url).href, alt: 'Production line' },
-  { src: new URL('@/assets/factory/ball_mills.jpg', import.meta.url).href, alt: 'Ball mills' },
-  { src: new URL('@/assets/factory/io_triple.jpg', import.meta.url).href, alt: 'Support insulators' },
-  { src: new URL('@/assets/factory/kiln_2.jpg', import.meta.url).href, alt: 'Kiln' },
+  { src: new URL('@/assets/factory/multi_ipu.webp', import.meta.url).href, alt: 'Production line' },
+  { src: new URL('@/assets/factory/ball_mills.webp', import.meta.url).href, alt: 'Ball mills' },
+  { src: new URL('@/assets/factory/io_triple.webp', import.meta.url).href, alt: 'Support insulators' },
+  { src: new URL('@/assets/factory/kiln_2.webp', import.meta.url).href, alt: 'Kiln' },
 ]
 </script>
 

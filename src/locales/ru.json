@@ -52,7 +52,13 @@
     "viewDetails": "Подробно",
     "search": "Поиск товаров…",
     "resultsCount": "Найдено товаров: {count}",
-    "noResults": "По вашему запросу ничего не найдено."
+    "noResults": "По вашему запросу ничего не найдено.",
+    "categories": {
+      "all": "Все",
+      "bushing": "Проходные",
+      "pin": "Штыревые",
+      "support": "Опорные"
+    }
   },
   "product": {
     "back": "Назад",
@@ -91,7 +97,21 @@
     "quickTitle": "Свяжитесь с нами прямо сейчас",
     "callNow": "Позвонить",
     "whatsapp": "WhatsApp",
-    "telegram": "Telegram"
+    "telegram": "Telegram",
+    "form": {
+      "title": "Заявка на расчёт",
+      "subtitle": "Расскажите, что вам нужно — мы ответим в WhatsApp.",
+      "name": "Ваше имя",
+      "phone": "Номер телефона",
+      "product": "Интересующий товар",
+      "productAny": "Не уверен(а) / общий вопрос",
+      "message": "Сообщение",
+      "submit": "Отправить в WhatsApp",
+      "emailAlt": "Предпочитаете email? Пишите на",
+      "nameRequired": "Пожалуйста, укажите имя",
+      "phoneRequired": "Пожалуйста, укажите номер телефона",
+      "whatsappIntro": "Новая заявка с сайта:"
+    }
   },
   "footer": {
     "rights": "Все права защищены.",

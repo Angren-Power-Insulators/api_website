@@ -1,8 +1,9 @@
 export default [
   {
     id: 1,
+    category: "bushing",
     price: "199 000",
-    image: new URL("@/assets/products/ipu_630.png", import.meta.url).href,
+    image: new URL("@/assets/products/ipu_630.webp", import.meta.url).href,
     content: {
       ru: {
         name: "Изолятор ИПУ 10/630",
@@ -56,8 +57,9 @@ export default [
   },
   {
     id: 2,
+    category: "bushing",
     price: "249 000",
-    image: new URL("@/assets/products/ipu_1000.png", import.meta.url).href,
+    image: new URL("@/assets/products/ipu_1000.webp", import.meta.url).href,
     content: {
       ru: {
         name: "Изолятор ИПУ 10/1000",
@@ -111,8 +113,9 @@ export default [
   },
   {
     id: 3,
+    category: "pin",
     price: "49 900",
-    image: new URL("@/assets/products/shf_20.png", import.meta.url).href,
+    image: new URL("@/assets/products/shf_20.webp", import.meta.url).href,
     content: {
       ru: {
         name: "Изолятор ШФ-20Г",
@@ -163,8 +166,9 @@ export default [
   },
   {
     id: 4,
+    category: "pin",
     price: "19 900",
-    image: new URL("@/assets/products/shf_20.png", import.meta.url).href,
+    image: new URL("@/assets/products/shf_20.webp", import.meta.url).href,
     content: {
       ru: {
         name: "Изолятор ШФ-10МО",
@@ -215,6 +219,7 @@ export default [
   },
   {
     id: 5,
+    category: "pin",
     price: "84 000",
     image: new URL("@/assets/products/s4.webp", import.meta.url).href,
     content: {
@@ -267,8 +272,9 @@ export default [
   },
   {
     id: 6,
+    category: "support",
     price: "18 000",
-    image: new URL("@/assets/products/io_bolt.png", import.meta.url).href,
+    image: new URL("@/assets/products/io_bolt.webp", import.meta.url).href,
     content: {
       ru: {
         name: "Изолятор ИО 10-3.75",
@@ -319,8 +325,9 @@ export default [
   },
   {
     id: 7,
+    category: "support",
     price: "24 000",
-    image: new URL("@/assets/products/io_thread.png", import.meta.url).href,
+    image: new URL("@/assets/products/io_thread.webp", import.meta.url).href,
     content: {
       ru: {
         name: "Изолятор ИО 10-3.75",
@@ -371,8 +378,9 @@ export default [
   },
   {
     id: 8,
+    category: "pin",
     price: "6 000",
-    image: new URL("@/assets/products/tf_20.png", import.meta.url).href,
+    image: new URL("@/assets/products/tf_20.webp", import.meta.url).href,
     content: {
       ru: {
         name: "Изолятор ТФ-20",

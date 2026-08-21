@@ -7,6 +7,7 @@ function localize (product, locale) {
   const content = product.content[locale] || product.content[DEFAULT_LOCALE]
   return {
     id: product.id,
+    category: product.category,
     price: product.price,
     image: product.image,
     ...content,

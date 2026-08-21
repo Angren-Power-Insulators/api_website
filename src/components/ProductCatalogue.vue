@@ -26,6 +26,18 @@
     </section>
 
     <v-container class="py-8 py-md-12">
+      <!-- Category filter -->
+      <v-chip-group
+        v-model="activeCategory"
+        class="mb-2"
+        mandatory
+        selected-class="text-primary"
+      >
+        <v-chip v-for="cat in categories" :key="cat.value" filter :value="cat.value" variant="outlined">
+          {{ cat.label }}
+        </v-chip>
+      </v-chip-group>
+
       <!-- Result count -->
       <div class="text-body-2 text-medium-emphasis mb-4">
         {{ t('catalogue.resultsCount', { count: filteredProducts.length }) }}
@@ -95,12 +107,22 @@ const { t } = useI18n()
 const { localizedProducts } = useLocalizedProducts()
 
 const search = ref('')
+const activeCategory = ref('all')
+
+const categories = computed(() => [
+  { value: 'all', label: t('catalogue.categories.all') },
+  { value: 'bushing', label: t('catalogue.categories.bushing') },
+  { value: 'pin', label: t('catalogue.categories.pin') },
+  { value: 'support', label: t('catalogue.categories.support') },
+])
+
 const filteredProducts = computed(() => {
   const query = search.value?.trim().toLowerCase()
-  if (!query) return localizedProducts.value
-  return localizedProducts.value.filter(product =>
-    `${product.name} ${product.short}`.toLowerCase().includes(query)
-  )
+  return localizedProducts.value.filter(product => {
+    const matchesCategory = activeCategory.value === 'all' || product.category === activeCategory.value
+    const matchesQuery = !query || `${product.name} ${product.short}`.toLowerCase().includes(query)
+    return matchesCategory && matchesQuery
+  })
 })
 
 usePageSeo(() => ({

@@ -52,7 +52,13 @@
     "viewDetails": "Batafsil",
     "search": "Mahsulot qidirish…",
     "resultsCount": "{count} ta mahsulot topildi",
-    "noResults": "Qidiruvingizga mos mahsulot topilmadi."
+    "noResults": "Qidiruvingizga mos mahsulot topilmadi.",
+    "categories": {
+      "all": "Barchasi",
+      "bushing": "O'tkazuvchi",
+      "pin": "Shtirli",
+      "support": "Tayanch"
+    }
   },
   "product": {
     "back": "Orqaga",
@@ -91,7 +97,21 @@
     "quickTitle": "Biz bilan hoziroq bog'laning",
     "callNow": "Qo'ng'iroq qilish",
     "whatsapp": "WhatsApp",
-    "telegram": "Telegram"
+    "telegram": "Telegram",
+    "form": {
+      "title": "Narx so'rovi",
+      "subtitle": "Nima kerakligini yozing — biz WhatsApp orqali javob beramiz.",
+      "name": "Ismingiz",
+      "phone": "Telefon raqami",
+      "product": "Qiziqtirgan mahsulot",
+      "productAny": "Aniq emas / umumiy savol",
+      "message": "Xabar",
+      "submit": "WhatsApp orqali yuborish",
+      "emailAlt": "Email afzalmi? Bizga yozing:",
+      "nameRequired": "Ismingizni kiriting",
+      "phoneRequired": "Telefon raqamingizni kiriting",
+      "whatsappIntro": "Saytdan yangi so'rov:"
+    }
   },
   "footer": {
     "rights": "Barcha huquqlar himoyalangan.",

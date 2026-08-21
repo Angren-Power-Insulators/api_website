@@ -1,7 +1,7 @@
 import { useHead, useSeoMeta } from '@unhead/vue'
 import { SITE_URL } from '@/constants'
 
-const DEFAULT_IMAGE = new URL('@/assets/factory/multi_ipu.jpg', import.meta.url).href
+const DEFAULT_IMAGE = new URL('@/assets/factory/multi_ipu.webp', import.meta.url).href
 
 /**
  * Sets title/description, Open Graph, Twitter Card and canonical link tags

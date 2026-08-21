@@ -53,5 +53,10 @@
   },
   "footer": {
     "rights": "Barcha huquqlar himoyalangan."
+  },
+  "notFound": {
+    "title": "Sahifa topilmadi",
+    "message": "Bunday sahifa mavjud emas. Havola eskirgan yoki noto'g'ri kiritilgan bo'lishi mumkin.",
+    "backHome": "Bosh sahifaga"
   }
 }

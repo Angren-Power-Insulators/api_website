@@ -45,9 +45,10 @@
 <script setup>
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import { useHead, useSeoMeta } from '@unhead/vue'
+import { useHead } from '@unhead/vue'
 import { SITE_URL } from '@/constants'
 import { useLocalizedProduct } from '@/composables/useLocalizedProducts'
+import { usePageSeo } from '@/composables/usePageSeo'
 
 // ---------- Load product ----------
 const route = useRoute()
@@ -56,22 +57,54 @@ const id = Number(route.params.id)
 const product = useLocalizedProduct(id)
 
 // ---------- SEO META Tags ----------
-const canonicalUrl = `${SITE_URL}/catalogue/${id}`
-
-useSeoMeta(() => ({
-  title: product.value?.name || 'Product',
+usePageSeo(() => ({
+  title: product.value?.name || t('product.notFound'),
   description: product.value?.description,
-    keywords: product.value?.keywords?.join(', ') || '',
-  ogTitle: product.value?.name,
-  ogDescription: product.value?.description,
-  ogImage: product.value?.image,
-  ogType: 'product',
-  ogUrl: canonicalUrl,
-  twitterCard: 'summary_large_image'
+  path: `/catalogue/${id}`,
+  image: product.value?.image,
+  type: 'product',
 }))
 
-useHead(() => ({
-  link: [{ rel: 'canonical', href: canonicalUrl }],
-}))
+useHead(() => {
+  if (!product.value) return {}
+
+  const priceAmount = Number(String(product.value.price).replace(/\D/g, ''))
+
+  return {
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: product.value.name,
+          description: product.value.description,
+          image: product.value.image,
+          sku: String(id),
+          brand: { '@type': 'Brand', name: 'Angren Power Insulators' },
+          offers: {
+            '@type': 'Offer',
+            url: `${SITE_URL}/catalogue/${id}`,
+            priceCurrency: 'UZS',
+            price: priceAmount,
+            availability: 'https://schema.org/InStock',
+          },
+        }),
+      },
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: t('nav.home'), item: SITE_URL },
+            { '@type': 'ListItem', position: 2, name: t('nav.catalogue'), item: `${SITE_URL}/catalogue` },
+            { '@type': 'ListItem', position: 3, name: product.value.name, item: `${SITE_URL}/catalogue/${id}` },
+          ],
+        }),
+      },
+    ],
+  }
+})
 </script>
 

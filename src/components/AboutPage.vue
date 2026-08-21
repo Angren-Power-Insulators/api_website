@@ -29,14 +29,13 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { useSeoMeta } from '@unhead/vue'
+import { usePageSeo } from '@/composables/usePageSeo'
 
 const { t, tm, rt } = useI18n()
 
-useSeoMeta(() => ({
+usePageSeo(() => ({
   title: t('about.title'),
   description: t('about.description'),
-  ogTitle: t('about.title'),
-  ogDescription: t('about.description'),
+  path: '/about',
 }))
 </script>

@@ -42,16 +42,15 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { useSeoMeta } from '@unhead/vue'
+import { usePageSeo } from '@/composables/usePageSeo'
 
 const { t } = useI18n()
 
 const email = 'info@apinsulators.co'
 
-useSeoMeta(() => ({
+usePageSeo(() => ({
   title: t('contacts.title'),
   description: t('contacts.description'),
-  ogTitle: t('contacts.title'),
-  ogDescription: t('contacts.description'),
+  path: '/contacts',
 }))
 </script>

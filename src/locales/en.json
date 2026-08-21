@@ -53,5 +53,10 @@
   },
   "footer": {
     "rights": "All rights reserved."
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "message": "This page doesn't exist. The link may be outdated or mistyped.",
+    "backHome": "Back to Home"
   }
 }

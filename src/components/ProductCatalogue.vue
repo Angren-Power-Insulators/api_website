@@ -66,17 +66,34 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { useSeoMeta } from '@unhead/vue'
+import { useHead } from '@unhead/vue'
 import { useLocalizedProducts } from '@/composables/useLocalizedProducts'
+import { usePageSeo } from '@/composables/usePageSeo'
+import { SITE_URL } from '@/constants'
 
 const { t } = useI18n()
 const { localizedProducts } = useLocalizedProducts()
 
-useSeoMeta(() => ({
+usePageSeo(() => ({
   title: t('catalogue.title'),
   description: t('catalogue.description'),
-  ogTitle: t('catalogue.title'),
-  ogDescription: t('catalogue.description'),
+  path: '/catalogue',
+}))
+
+useHead(() => ({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t('nav.home'), item: SITE_URL },
+          { '@type': 'ListItem', position: 2, name: t('nav.catalogue'), item: `${SITE_URL}/catalogue` },
+        ],
+      }),
+    },
+  ],
 }))
 </script>
 

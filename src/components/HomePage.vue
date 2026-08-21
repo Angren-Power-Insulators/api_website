@@ -25,16 +25,15 @@
 <script setup>
   import { useDisplay } from 'vuetify'
   import { useI18n } from 'vue-i18n'
-  import { useSeoMeta } from '@unhead/vue'
+  import { usePageSeo } from '@/composables/usePageSeo'
 
   const { mobile } = useDisplay()
   const { t } = useI18n()
 
-  useSeoMeta(() => ({
+  usePageSeo(() => ({
     title: t('home.title'),
     description: t('home.description'),
-    ogTitle: t('home.title'),
-    ogDescription: t('home.description'),
+    path: '/',
   }))
 
   const slides = [

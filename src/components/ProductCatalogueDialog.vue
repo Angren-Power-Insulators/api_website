@@ -9,7 +9,7 @@
     <!-- Product Grid -->
     <v-row dense>
       <v-col
-        v-for="product in products"
+        v-for="product in localizedProducts"
         :key="product.id"
         cols="12"
         lg="3"
@@ -115,10 +115,10 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useSeoMeta } from '@unhead/vue'
-
-import products from "@/data/products.js";
+import { useLocalizedProducts } from '@/composables/useLocalizedProducts'
 
 const { t } = useI18n()
+const { localizedProducts } = useLocalizedProducts()
 
 useSeoMeta(() => ({
   title: t('catalogue.title'),

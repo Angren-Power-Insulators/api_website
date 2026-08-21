@@ -43,18 +43,17 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import products from '@/data/products.js'
 import { useHead, useSeoMeta } from '@unhead/vue'
 import { SITE_URL } from '@/constants'
+import { useLocalizedProduct } from '@/composables/useLocalizedProducts'
 
 // ---------- Load product ----------
 const route = useRoute()
 const { t } = useI18n()
 const id = Number(route.params.id)
-const product = computed(() => products.find(p => p.id === id))
+const product = useLocalizedProduct(id)
 
 // ---------- SEO META Tags ----------
 const canonicalUrl = `${SITE_URL}/catalogue/${id}`

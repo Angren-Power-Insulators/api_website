@@ -12,13 +12,13 @@
       target="_blank"
     >
       <v-icon>
-        <v-img :src="item.src" height="30" />
+        <v-img :alt="item.title" :src="item.src" height="30" />
       </v-icon>
     </a>
 
     <!-- Phone number -->
     <a href="tel:+998994431177" style="text-decoration: none; color: inherit;">
-  <div class="d-flex align-center ml-2 text-blue-darken-4 font-weight-semibold" style="user-select: none; cursor: pointer;">
+  <div class="d-flex align-center ml-2 text-primary font-weight-semibold" style="user-select: none; cursor: pointer;">
     <v-icon color="info" class="mr-1">mdi-phone</v-icon>
     (998) 99-443-1177
   </div>
@@ -33,6 +33,7 @@
       style="position: absolute; right: 16px"
     >
       <v-img
+        alt="Angren Power Insulators"
         src="@/assets/logo/logo_api_icon.png"
         height="20"
         width="20"
@@ -40,13 +41,13 @@
       />
 
       <span
-        class="d-none d-sm-inline-block mr-1 text-blue-darken-4 font-weight-bold"
+        class="d-none d-sm-inline-block mr-1 text-primary font-weight-bold"
         style="user-select: none"
       >
         Angren Power Insulators
       </span>
 
-      <span class="text-blue-darken-4">
+      <span class="text-primary">
         &copy; {{ new Date().getFullYear() }}
       </span>
     </div>

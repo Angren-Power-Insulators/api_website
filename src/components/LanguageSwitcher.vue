@@ -1,51 +1,41 @@
 <template>
   <v-select
-    class="mb-4"
-    style="max-width: 120px"
+    v-model="locale"
     bg-color="transparent"
-    menu-icon=""
-    v-model="selectedCountry"
-    variant="plain"
+    class="mb-4"
     hide-details
     :items="[
       { title: 'РУ', value: 'ru' },
       { title: 'ЎЗ', value: 'uz' },
-      { title: 'EN', value: 'us' }
+      { title: 'EN', value: 'en' }
     ]"
+    menu-icon=""
+    style="max-width: 120px"
+    variant="plain"
   >
     <template v-slot:prepend-inner>
-      <country-flag style="margin: -10px" rounded :country="selectedCountry" size="normal" />
+      <country-flag :country="flagCountry" rounded size="normal" style="margin: -10px" />
     </template>
   </v-select>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
+import { computed, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CountryFlag from 'vue-country-flag-next'
 
-const selectedCountry = ref('RU') // default RU
+const { locale } = useI18n()
+
+const FLAG_BY_LOCALE = { ru: 'ru', uz: 'uz', en: 'us' }
+const flagCountry = computed(() => FLAG_BY_LOCALE[locale.value] || 'us')
+
+watch(locale, value => {
+  localStorage.setItem('locale', value)
+  document.documentElement.setAttribute('lang', value)
+})
 </script>
 
 <style>
-/* .v-field--focused {
-  outline-color: transparent !important;
-  outline-style: solid !important;
-}
-
-.v-field__outline {
-  outline-color: transparent !important;
-  outline-style: solid !important;
-}
-
-.v-field--variant-outlined .v-field__outline__start,
-.v-field--variant-outlined .v-field__outline__notch::before,
-.v-field--variant-outlined .v-field__outline__notch::after,
-.v-field--variant-outlined .v-field__outline__end {
-  outline-color: transparent !important;
-  outline-style: solid !important;
-} */
-
 .v-field__outline {
   --v-field-border-width: 0px !important;
   --v-field-border-opacity: 1 !important;

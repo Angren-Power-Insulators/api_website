@@ -31,7 +31,17 @@ const routes = [
   name: 'product',
   component: () => import('@/components/ProductDetails.vue'),
   props: true
-  }
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: () => import('@/components/AboutPage.vue'),
+  },
+  {
+    path: '/contacts',
+    name: 'Contacts',
+    component: () => import('@/components/ContactsPage.vue'),
+  },
 ],
   },
 

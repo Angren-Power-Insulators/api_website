@@ -3,7 +3,7 @@
 
     <!-- Page Title -->
     <h1 class="text-h5 text-md-h4 mb-6 text-center text-md-left">
-      Каталог продукции
+      {{ t('catalogue.title') }}
     </h1>
 
     <!-- Product Grid -->
@@ -12,20 +12,21 @@
         v-for="product in products"
         :key="product.id"
         cols="12"
-        sm="6"
-        md="4"
         lg="3"
+        md="4"
+        sm="6"
       >
         <v-card
-          elevation="2"
           class="rounded-lg d-flex flex-column h-100 bg-grey-lighten-4"
+          elevation="2"
         >
 
           <!-- Product Image -->
           <v-img
-            :src="product.image"
-            height="180"
+            :alt="product.name"
             class="rounded-t-lg mt-2"
+            height="180"
+            :src="product.image"
           />
 
           <!-- Title -->
@@ -40,19 +41,19 @@
 
           <!-- Price -->
           <v-card-text class="text-center text-md-left">
-            <strong>{{ product.price }} сум</strong>
+            <strong>{{ product.price }} {{ t('common.currency') }}</strong>
           </v-card-text>
 
           <!-- Button -->
           <v-card-actions class="mt-auto">
             <v-btn
-              color="primary"
-              variant="tonal"
               class="mx-auto my-2"
+              color="primary"
               size="large"
+              variant="tonal"
                  @click="openDialog(product)"
             >
-              Подробно
+              {{ t('catalogue.viewDetails') }}
             </v-btn>
           </v-card-actions>
 
@@ -65,8 +66,8 @@
 
     <!-- Close button -->
     <v-btn
-      icon="mdi-close"
       class="ml-auto mb-2"
+      icon="mdi-close"
       variant="text"
       @click="dialog = false"
     />
@@ -74,9 +75,10 @@
     <v-row>
       <v-col cols="12" md="5">
         <v-img
-          :src="selectedProduct?.image"
-          height="200"
+          :alt="selectedProduct?.name"
           class="rounded-lg"
+          height="200"
+          :src="selectedProduct?.image"
         />
       </v-col>
 
@@ -100,7 +102,7 @@
 
     <v-card-actions>
       <v-spacer />
-      <v-btn color="primary" @click="dialog = false">Закрыть</v-btn>
+      <v-btn color="primary" @click="dialog = false">{{ t('dialog.close') }}</v-btn>
     </v-card-actions>
 
   </v-card>
@@ -111,9 +113,19 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useSeoMeta } from '@unhead/vue'
 
 import products from "@/data/products.js";
 
+const { t } = useI18n()
+
+useSeoMeta(() => ({
+  title: t('catalogue.title'),
+  description: t('catalogue.description'),
+  ogTitle: t('catalogue.title'),
+  ogDescription: t('catalogue.description'),
+}))
 
 const dialog = ref(false)
 const selectedProduct = ref(null)

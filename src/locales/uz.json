@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "BOSH SAHIFA",
+    "catalogue": "KATALOG",
+    "about": "BIZ HAQIMIZDA",
+    "contacts": "ALOQA"
+  },
+  "common": {
+    "currency": "so'm"
+  },
+  "home": {
+    "title": "Angren Power Insulators — farfor izolyatorlari",
+    "description": "O'zbekistondagi farfor elektr izolyatorlari ishlab chiqaruvchisi."
+  },
+  "catalogue": {
+    "title": "Mahsulotlar katalogi",
+    "description": "Farfor izolyatorlar katalogi: o'tkazuvchi, shtirli va tayanch izolyatorlar.",
+    "viewDetails": "Batafsil"
+  },
+  "product": {
+    "back": "Orqaga",
+    "notFound": "Mahsulot topilmadi"
+  },
+  "dialog": {
+    "close": "Yopish"
+  },
+  "about": {
+    "title": "Biz haqimizda",
+    "description": "Angren Power Insulators — O'zbekistondagi farfor izolyatorlari ishlab chiqaruvchisi.",
+    "intro": "Angren Power Insulators — O'zbekistondagi farfor elektr izolyatorlari ishlab chiqaruvchisi. Biz Markaziy Osiyo bo'ylab energetika va sanoat korxonalariga mahsulot yetkazib beramiz.",
+    "missionTitle": "Bizning maqsadimiz",
+    "mission": "Energetika infratuzilmasining xavfsiz va uzluksiz ishlashini ta'minlaydigan yuqori sifatli farfor izolyatorlarni ishlab chiqarish.",
+    "historyTitle": "Bizning tariximiz",
+    "history": "Zavod Toshkent viloyati Angren shahrida tashkil etilgan. Biz an'anaviy farfor ishlab chiqarish texnologiyalarini zamonaviy sifat nazorati bilan uyg'unlashtirib, mintaqadagi kichik va yirik quvvat tarmoqlari uchun izolyatorlar ishlab chiqaramiz.",
+    "valuesTitle": "Nima uchun bizni tanlashadi",
+    "values": [
+      "Ko'p yillik ishlab chiqarish tajribasi",
+      "Har bir partiyani qat'iy sifat nazoratidan o'tkazish",
+      "Katta buyurtmalarni tez bajarish",
+      "Muhandislik jamoasining bevosita yordami"
+    ]
+  },
+  "contacts": {
+    "title": "Aloqa",
+    "description": "Angren Power Insulators bilan telefon, email yoki messenjer orqali bog'laning.",
+    "addressLabel": "Manzil",
+    "address": "Angren sh., Toshkent viloyati, O'zbekiston",
+    "phoneLabel": "Telefon",
+    "emailLabel": "Email",
+    "hoursLabel": "Ish vaqti",
+    "hours": "Dush–Shan, 9:00–18:00",
+    "formNote": "Quyidagi telefon, WhatsApp yoki Telegram orqali biz bilan bog'laning — tez orada javob beramiz."
+  },
+  "footer": {
+    "rights": "Barcha huquqlar himoyalangan."
+  }
+}

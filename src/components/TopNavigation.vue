@@ -1,67 +1,58 @@
 <template>
-  <v-app>
-    <!-- Top Bar -->
-    <v-app-bar flat color="white">
-      <!-- Logo -->
-      <v-img height="40" src="@/assets/logo/logo_api.png" class="cursor-pointer" @click="goHome" />
+  <!-- Top Bar -->
+  <v-app-bar flat color="white">
+    <!-- Logo -->
+    <v-img alt="Angren Power Insulators" class="cursor-pointer" height="40" src="@/assets/logo/logo_api.png" @click="goHome" />
 
-      <v-spacer></v-spacer>
+    <v-spacer></v-spacer>
 
-      <LanguageSwitcher />
+    <LanguageSwitcher />
 
-      <!-- Desktop Menu -->
-      <div class="d-none d-md-flex">
-        <v-btn text to="/" exact>ГЛАВНАЯ</v-btn>
-        <v-btn text to="/catalogue">КАТАЛОГ</v-btn>
-        <v-btn text to="/about">О НАС</v-btn>
-        <v-btn text to="/contacts">КОНТАКТЫ</v-btn>
-      </div>
+    <!-- Desktop Menu -->
+    <div class="d-none d-md-flex">
+      <v-btn exact text to="/">{{ t('nav.home') }}</v-btn>
+      <v-btn text to="/catalogue">{{ t('nav.catalogue') }}</v-btn>
+      <v-btn text to="/about">{{ t('nav.about') }}</v-btn>
+      <v-btn text to="/contacts">{{ t('nav.contacts') }}</v-btn>
+    </div>
 
-      <!-- Mobile Hamburger -->
-      <v-btn icon class="d-md-none" @click="drawer = !drawer">
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
+    <!-- Mobile Hamburger -->
+    <v-btn class="d-md-none" icon @click="drawer = !drawer">
+      <v-icon>mdi-menu</v-icon>
+    </v-btn>
 
-    </v-app-bar>
+  </v-app-bar>
 
-    <!-- Mobile Drawer -->
-    <v-navigation-drawer v-model="drawer" temporary location="right">
-      <v-list>
-        <v-list-item to="/" exact title="ГЛАВНАЯ" @click="drawer = false" />
-        <v-list-item to="/catalogue" title="КАТАЛОГ" @click="drawer = false" />
-        <v-list-item to="/about" title="О НАС" @click="drawer = false" />
-        <v-list-item to="/contacts" title="КОНТАКТЫ" @click="drawer = false" />
-      </v-list>
+  <!-- Mobile Drawer -->
+  <v-navigation-drawer v-model="drawer" location="right" temporary>
+    <v-list>
+      <v-list-item exact :title="t('nav.home')" to="/" @click="drawer = false" />
+      <v-list-item :title="t('nav.catalogue')" to="/catalogue" @click="drawer = false" />
+      <v-list-item :title="t('nav.about')" to="/about" @click="drawer = false" />
+      <v-list-item :title="t('nav.contacts')" to="/contacts" @click="drawer = false" />
+    </v-list>
 
 
-      <v-btn icon @click="drawer = false">
-        <v-icon>mdi-close</v-icon>
-      </v-btn>
-    </v-navigation-drawer>
+    <v-btn icon @click="drawer = false">
+      <v-icon>mdi-close</v-icon>
+    </v-btn>
+  </v-navigation-drawer>
 
-    <!-- Main page content -->
-    <router-view />
-  </v-app>
+  <!-- Main page content -->
+  <router-view />
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 const router = useRouter()
+const { t } = useI18n()
 
 const goHome = () => {
   router.push('/')
 }
 
-const languages = [
-  { code: "uz", label: "Uzbek", flag: "https://flagcdn.com/uz.svg" },
-  { code: "ru", label: "Russian", flag: "https://flagcdn.com/ru.svg" },
-  { code: "en", label: "English", flag: "https://flagcdn.com/gb.svg" },
-]
-
 const drawer = ref(false)
-
-
-
 </script>

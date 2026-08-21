@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "HOME",
+    "catalogue": "CATALOGUE",
+    "about": "ABOUT",
+    "contacts": "CONTACTS"
+  },
+  "common": {
+    "currency": "UZS"
+  },
+  "home": {
+    "title": "Angren Power Insulators — Porcelain Insulators",
+    "description": "Manufacturer of porcelain electrical insulators based in Uzbekistan."
+  },
+  "catalogue": {
+    "title": "Product Catalogue",
+    "description": "Catalogue of porcelain insulators: bushing, pin and support insulators.",
+    "viewDetails": "View details"
+  },
+  "product": {
+    "back": "Back",
+    "notFound": "Product not found"
+  },
+  "dialog": {
+    "close": "Close"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Angren Power Insulators is a manufacturer of porcelain insulators based in Uzbekistan.",
+    "intro": "Angren Power Insulators is a Uzbekistan-based manufacturer of porcelain electrical insulators, serving power utilities and industrial customers across Central Asia.",
+    "missionTitle": "Our Mission",
+    "mission": "To deliver reliable, high-quality porcelain insulation products that keep power infrastructure safe and running.",
+    "historyTitle": "Our Story",
+    "history": "Founded in Angren, Tashkent region, our factory combines traditional porcelain manufacturing techniques with modern quality control to produce insulators used in substations and power lines throughout the region.",
+    "valuesTitle": "Why Choose Us",
+    "values": [
+      "Decades of combined manufacturing experience",
+      "Rigorous quality testing on every batch",
+      "Fast turnaround for bulk orders",
+      "Direct support from our engineering team"
+    ]
+  },
+  "contacts": {
+    "title": "Contacts",
+    "description": "Get in touch with Angren Power Insulators by phone, email or messenger.",
+    "addressLabel": "Address",
+    "address": "Angren, Tashkent region, Uzbekistan",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "hoursLabel": "Working hours",
+    "hours": "Mon–Sat, 9:00–18:00",
+    "formNote": "Reach out via phone, WhatsApp or Telegram below and we'll get back to you shortly."
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}

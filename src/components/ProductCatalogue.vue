@@ -1,70 +1,90 @@
 <template>
-  <v-container class="py-6">
+  <div>
+    <!-- Page header -->
+    <section class="catalogue-header">
+      <v-container class="py-10 py-md-14 text-center">
+        <h1 class="text-h4 text-md-h3 font-weight-bold text-white mb-3">
+          {{ t('catalogue.title') }}
+        </h1>
+        <p class="text-body-1 mx-auto mb-8" style="max-width: 620px; color: rgba(255,255,255,.82)">
+          {{ t('catalogue.description') }}
+        </p>
 
-    <!-- Page Title -->
-    <h1 class="text-h5 text-md-h4 mb-6 text-center text-md-left">
-      {{ t('catalogue.title') }}
-    </h1>
+        <v-text-field
+          v-model="search"
+          bg-color="white"
+          class="mx-auto"
+          clearable
+          density="comfortable"
+          hide-details
+          :placeholder="t('catalogue.search')"
+          prepend-inner-icon="mdi-magnify"
+          rounded="lg"
+          style="max-width: 480px"
+        />
+      </v-container>
+    </section>
 
-    <!-- Product Grid -->
-    <v-row dense>
-      <v-col
-        v-for="product in localizedProducts"
-        :key="product.id"
-        cols="12"
-        lg="3"
-        md="4"
-        sm="6"
-      >
-        <v-card
-          class="rounded-lg d-flex flex-column h-100 bg-grey-lighten-4"
-          elevation="2"
+    <v-container class="py-8 py-md-12">
+      <!-- Result count -->
+      <div class="text-body-2 text-medium-emphasis mb-4">
+        {{ t('catalogue.resultsCount', { count: filteredProducts.length }) }}
+      </div>
+
+      <!-- Product Grid -->
+      <v-row v-if="filteredProducts.length" dense>
+        <v-col
+          v-for="product in filteredProducts"
+          :key="product.id"
+          cols="12"
+          lg="3"
+          md="4"
+          sm="6"
         >
+          <v-card
+            class="product-card hover-lift d-flex flex-column h-100"
+            :to="`/catalogue/${product.id}`"
+            variant="outlined"
+          >
+            <div class="product-card-image">
+              <v-img
+                :alt="product.name"
+                height="190"
+                :src="product.image"
+              />
+            </div>
 
-          <!-- Product Image -->
-          <v-img
-            :alt="product.name"
-            class="rounded-t-lg mt-2"
-            height="180"
-            :src="product.image"
-          />
+            <v-card-title class="text-body-1 font-weight-medium">
+              {{ product.name }}
+            </v-card-title>
 
-          <!-- Title -->
-          <v-card-title class="text-center text-md-left text-body-1">
-            {{ product.name }}
-          </v-card-title>
+            <v-card-subtitle class="text-wrap">
+              {{ product.short }}
+            </v-card-subtitle>
 
-          <!-- Short Description -->
-          <v-card-subtitle class="text-center text-md-left">
-            {{ product.short }}
-          </v-card-subtitle>
+            <v-spacer />
 
-          <!-- Price -->
-          <v-card-text class="text-center text-md-left">
-            <strong>{{ product.price }} {{ t('common.currency') }}</strong>
-          </v-card-text>
+            <v-card-text class="d-flex align-center justify-space-between pt-2">
+              <strong class="text-primary text-body-1">{{ product.price }} {{ t('common.currency') }}</strong>
+              <v-btn color="primary" size="small" variant="tonal">
+                {{ t('catalogue.viewDetails') }}
+              </v-btn>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
 
-          <!-- Button -->
-          <v-card-actions class="mt-auto">
-            <v-btn
-              class="mx-auto my-2"
-              color="primary"
-              size="large"
-              :to="`/catalogue/${product.id}`"
-              variant="tonal"
-            >
-              {{ t('catalogue.viewDetails') }}
-            </v-btn>
-          </v-card-actions>
-
-        </v-card>
-      </v-col>
-    </v-row>
-
-  </v-container>
+      <!-- Empty state -->
+      <div v-else class="text-center py-16">
+        <v-icon class="mb-4" color="grey-lighten-1" size="64">mdi-package-variant-closed</v-icon>
+        <div class="text-h6 text-medium-emphasis">{{ t('catalogue.noResults') }}</div>
+      </div>
+    </v-container>
+  </div>
 </template>
 
 <script setup>
+import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useHead } from '@unhead/vue'
 import { useLocalizedProducts } from '@/composables/useLocalizedProducts'
@@ -73,6 +93,15 @@ import { SITE_URL } from '@/constants'
 
 const { t } = useI18n()
 const { localizedProducts } = useLocalizedProducts()
+
+const search = ref('')
+const filteredProducts = computed(() => {
+  const query = search.value?.trim().toLowerCase()
+  if (!query) return localizedProducts.value
+  return localizedProducts.value.filter(product =>
+    `${product.name} ${product.short}`.toLowerCase().includes(query)
+  )
+})
 
 usePageSeo(() => ({
   title: t('catalogue.title'),
@@ -98,12 +127,12 @@ useHead(() => ({
 </script>
 
 <style scoped>
-/* Extra mobile optimization */
-@media (max-width: 600px) {
-  .v-card-title,
-  .v-card-subtitle,
-  .v-card-text {
-    text-align: center !important;
-  }
+.catalogue-header {
+  background: linear-gradient(135deg, #0D2E7A 0%, #1D4ED8 100%);
+}
+
+.product-card-image {
+  background: linear-gradient(180deg, #F5F7FA 0%, #ECEFF3 100%);
+  padding: 8px;
 }
 </style>

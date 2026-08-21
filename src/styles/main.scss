@@ -1,0 +1,92 @@
+/**
+ * src/styles/main.scss
+ *
+ * Site-wide look & feel on top of the Vuetify theme.
+ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6,
+.text-h1, .text-h2, .text-h3, .text-h4, .text-h5, .text-h6 {
+  font-family: 'Montserrat', 'Roboto', sans-serif !important;
+  letter-spacing: normal !important;
+}
+
+::selection {
+  background: rgba(13, 46, 122, 0.18);
+}
+
+/* Slim, unobtrusive scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(13, 46, 122, 0.25);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(13, 46, 122, 0.4);
+  background-clip: content-box;
+}
+
+/* ---------- Reusable utilities ---------- */
+
+.hover-lift {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -18px rgba(13, 46, 122, 0.35) !important;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #0D2E7A 0%, #3B82F6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-py {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+@media (max-width: 960px) {
+  .section-py {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+}
+
+.bg-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+
+/* Reserve room at the bottom of the viewport on mobile so the quick-action
+   bar never overlaps footer content or CTAs. */
+.has-mobile-quickbar {
+  padding-bottom: 64px;
+}
+@media (min-width: 960px) {
+  .has-mobile-quickbar {
+    padding-bottom: 0;
+  }
+}

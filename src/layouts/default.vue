@@ -1,5 +1,5 @@
 <template>
-  <v-main>
+  <v-main class="has-mobile-quickbar">
     <router-view />
   </v-main>
 

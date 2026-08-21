@@ -3,19 +3,56 @@
     "home": "HOME",
     "catalogue": "CATALOGUE",
     "about": "ABOUT",
-    "contacts": "CONTACTS"
+    "contacts": "CONTACTS",
+    "contactCta": "Get in Touch"
   },
   "common": {
     "currency": "UZS"
   },
+  "quickbar": {
+    "home": "Home",
+    "catalogue": "Catalogue",
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "contacts": "Contacts"
+  },
   "home": {
     "title": "Angren Power Insulators — Porcelain Insulators",
-    "description": "Manufacturer of porcelain electrical insulators based in Uzbekistan."
+    "description": "Manufacturer of porcelain electrical insulators based in Uzbekistan.",
+    "hero": {
+      "title": "Porcelain Insulators Built for the Grid",
+      "subtitle": "Angren Power Insulators manufactures reliable porcelain electrical insulators for power utilities and industry across Central Asia.",
+      "ctaPrimary": "Browse Catalogue",
+      "ctaSecondary": "Contact Us"
+    },
+    "stats": {
+      "experienceLabel": "Manufacturing Experience",
+      "experienceValue": "Decades",
+      "productsLabel": "Product Types",
+      "regionsLabel": "Markets Served",
+      "regionsValue": "Central Asia",
+      "qualityLabel": "Batches Quality Tested",
+      "qualityValue": "100%"
+    },
+    "featured": {
+      "title": "Featured Products",
+      "subtitle": "A selection of our porcelain insulators — bushing, pin and support types.",
+      "viewAll": "View Full Catalogue"
+    },
+    "cta": {
+      "title": "Need Insulators for Your Project?",
+      "subtitle": "Reach out for pricing, bulk orders or technical specifications — our team responds fast.",
+      "call": "Call Now",
+      "whatsapp": "Chat on WhatsApp"
+    }
   },
   "catalogue": {
     "title": "Product Catalogue",
     "description": "Catalogue of porcelain insulators: bushing, pin and support insulators.",
-    "viewDetails": "View details"
+    "viewDetails": "View details",
+    "search": "Search products…",
+    "resultsCount": "{count} products found",
+    "noResults": "No products match your search."
   },
   "product": {
     "back": "Back",
@@ -38,7 +75,8 @@
       "Rigorous quality testing on every batch",
       "Fast turnaround for bulk orders",
       "Direct support from our engineering team"
-    ]
+    ],
+    "galleryTitle": "Inside Our Factory"
   },
   "contacts": {
     "title": "Contacts",
@@ -49,10 +87,15 @@
     "emailLabel": "Email",
     "hoursLabel": "Working hours",
     "hours": "Mon–Sat, 9:00–18:00",
-    "formNote": "Reach out via phone, WhatsApp or Telegram below and we'll get back to you shortly."
+    "formNote": "Reach out via phone, WhatsApp or Telegram below and we'll get back to you shortly.",
+    "quickTitle": "Get in Touch Instantly",
+    "callNow": "Call Now",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram"
   },
   "footer": {
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "menu": "Menu"
   },
   "notFound": {
     "title": "Page Not Found",

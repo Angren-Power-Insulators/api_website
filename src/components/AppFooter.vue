@@ -1,89 +1,140 @@
 <template>
-  <v-footer height="50" color="white" app>
+  <v-footer class="footer" color="#0A2456">
+    <v-container class="py-10 py-md-14">
+      <v-row>
+        <!-- Brand -->
+        <v-col cols="12" md="4">
+          <div class="d-flex align-center mb-3">
+            <v-img
+              alt="Angren Power Insulators"
+              src="@/assets/logo/logo_api_icon.png"
+              height="34"
+              width="34"
+              class="mr-2 flex-0-1-auto"
+            />
+            <span class="text-h6 font-weight-bold text-white">Angren Power Insulators</span>
+          </div>
+          <p class="text-body-2 footer-muted mb-4">
+            {{ t('home.description') }}
+          </p>
 
-    <!-- Social icons -->
-    <a
-      v-for="item in items"
-      :key="item.title"
-      :href="item.href"
-      :title="item.title"
-      class="d-inline-block mx-2 social-link"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <v-icon>
-        <v-img :alt="item.title" :src="item.src" height="30" />
-      </v-icon>
-    </a>
+          <div class="d-flex ga-2">
+            <v-btn
+              v-for="item in socials"
+              :key="item.title"
+              :href="item.href"
+              :title="item.title"
+              icon
+              rel="noopener noreferrer"
+              size="small"
+              target="_blank"
+              variant="tonal"
+              color="white"
+            >
+              <v-icon :icon="item.icon" size="20" />
+            </v-btn>
+          </div>
+        </v-col>
 
-    <!-- Phone number -->
-    <a href="tel:+998994431177" style="text-decoration: none; color: inherit;">
-  <div class="d-flex align-center ml-2 text-primary font-weight-semibold" style="user-select: none; cursor: pointer;">
-    <v-icon color="info" class="mr-1">mdi-phone</v-icon>
-    (998) 99-443-1177
-  </div>
-</a>
+        <!-- Quick links -->
+        <v-col cols="6" md="2">
+          <div class="text-overline footer-heading mb-3">{{ t('footer.menu') }}</div>
+          <v-list bg-color="transparent" class="pa-0" density="compact">
+            <v-list-item class="px-0 footer-link" exact :title="t('nav.home')" to="/" />
+            <v-list-item class="px-0 footer-link" :title="t('nav.catalogue')" to="/catalogue" />
+            <v-list-item class="px-0 footer-link" :title="t('nav.about')" to="/about" />
+            <v-list-item class="px-0 footer-link" :title="t('nav.contacts')" to="/contacts" />
+          </v-list>
+        </v-col>
 
+        <!-- Contact -->
+        <v-col cols="6" md="3">
+          <div class="text-overline footer-heading mb-3">{{ t('contacts.title') }}</div>
 
+          <a class="d-flex align-center footer-link text-body-2 mb-3" :href="`tel:${PHONE_TEL}`">
+            <v-icon class="mr-2" size="18">mdi-phone</v-icon>
+            {{ PHONE_DISPLAY }}
+          </a>
 
+          <a class="d-flex align-center footer-link text-body-2 mb-3" :href="`mailto:${EMAIL}`">
+            <v-icon class="mr-2" size="18">mdi-email-outline</v-icon>
+            {{ EMAIL }}
+          </a>
 
-    <!-- Logo + Company name + Year (disappear on mobile) -->
-    <div
-      class="text-caption text-disabled d-none d-sm-flex align-center"
-      style="position: absolute; right: 16px"
-    >
-      <v-img
-        alt="Angren Power Insulators"
-        src="@/assets/logo/logo_api_icon.png"
-        height="20"
-        width="20"
-        class="mr-2"
-      />
+          <div class="d-flex footer-link text-body-2">
+            <v-icon class="mr-2 mt-1" size="18">mdi-map-marker-outline</v-icon>
+            <span>{{ t('contacts.address') }}</span>
+          </div>
+        </v-col>
 
-      <span
-        class="d-none d-sm-inline-block mr-1 text-primary font-weight-bold"
-        style="user-select: none"
-      >
-        Angren Power Insulators
-      </span>
+        <!-- CTA -->
+        <v-col cols="12" md="3">
+          <div class="text-overline footer-heading mb-3">{{ t('contacts.hoursLabel') }}</div>
+          <p class="text-body-2 footer-muted mb-4">{{ t('contacts.hours') }}</p>
+          <v-btn
+            color="white"
+            :href="WHATSAPP_URL"
+            prepend-icon="mdi-whatsapp"
+            rel="noopener noreferrer"
+            target="_blank"
+            variant="flat"
+          >
+            {{ t('contacts.whatsapp') }}
+          </v-btn>
+        </v-col>
+      </v-row>
 
-      <span class="text-primary">
-        &copy; {{ new Date().getFullYear() }}
-      </span>
-    </div>
+      <v-divider class="my-6 footer-divider" />
 
+      <div class="d-flex flex-column flex-sm-row align-center justify-space-between ga-2">
+        <span class="text-caption footer-muted">
+          &copy; {{ new Date().getFullYear() }} Angren Power Insulators. {{ t('footer.rights') }}
+        </span>
+        <LanguageSwitcher class="footer-lang" />
+      </div>
+    </v-container>
   </v-footer>
 </template>
 
 
 <script setup>
-const items = [
-  {
-    title: 'Whatsapp',
-    src: new URL('@/assets/logo/whatsapp.webp', import.meta.url).href,
-    href: 'https://wa.me/998998426389',
-  },
-  {
-    title: 'Telegram',
-    src: new URL('@/assets/logo/telegram.png', import.meta.url).href,
-    href: 'https://telegram.me/notarious2',
+import { useI18n } from 'vue-i18n'
+import { PHONE_TEL, PHONE_DISPLAY, EMAIL, WHATSAPP_URL, TELEGRAM_URL, INSTAGRAM_URL } from '@/constants'
 
-  },
-  {
-    title: 'Instagram',
-    src: new URL('@/assets/logo/instagram.webp', import.meta.url).href,
-    href: 'https://www.instagram.com/ap.insulators/',
+const { t } = useI18n()
 
-  }
+const socials = [
+  { title: 'Whatsapp', icon: 'mdi-whatsapp', href: WHATSAPP_URL },
+  { title: 'Telegram', icon: 'mdi-send', href: TELEGRAM_URL },
+  { title: 'Instagram', icon: 'mdi-instagram', href: INSTAGRAM_URL },
 ]
 </script>
 
-<style scoped lang="sass">
-.social-link :deep(.v-icon)
-  color: rgba(var(--v-theme-on-background), var(--v-disabled-opacity))
-  text-decoration: none
-  transition: .2s ease-in-out
-
-  &:hover
-    color: rgba(25, 118, 210, 1)
+<style scoped>
+.footer-muted {
+  color: rgba(255, 255, 255, 0.65);
+}
+.footer-heading {
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.08em;
+}
+.footer-link {
+  color: rgba(255, 255, 255, 0.78) !important;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.footer-link:hover {
+  color: #ffffff !important;
+}
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+.footer-lang :deep(.v-field__input),
+.footer-lang :deep(.v-icon),
+.footer-lang :deep(input) {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+:deep(.v-list-item-title) {
+  font-size: 0.875rem;
+}
 </style>

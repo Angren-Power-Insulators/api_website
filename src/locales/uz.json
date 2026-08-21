@@ -3,19 +3,56 @@
     "home": "BOSH SAHIFA",
     "catalogue": "KATALOG",
     "about": "BIZ HAQIMIZDA",
-    "contacts": "ALOQA"
+    "contacts": "ALOQA",
+    "contactCta": "Bog'lanish"
   },
   "common": {
     "currency": "so'm"
   },
+  "quickbar": {
+    "home": "Bosh sahifa",
+    "catalogue": "Katalog",
+    "call": "Qo'ng'iroq",
+    "whatsapp": "WhatsApp",
+    "contacts": "Aloqa"
+  },
   "home": {
     "title": "Angren Power Insulators — farfor izolyatorlari",
-    "description": "O'zbekistondagi farfor elektr izolyatorlari ishlab chiqaruvchisi."
+    "description": "O'zbekistondagi farfor elektr izolyatorlari ishlab chiqaruvchisi.",
+    "hero": {
+      "title": "Energetika uchun farfor izolyatorlari",
+      "subtitle": "Angren Power Insulators Markaziy Osiyo energetika va sanoat korxonalari uchun ishonchli farfor elektr izolyatorlarini ishlab chiqaradi.",
+      "ctaPrimary": "Katalogni ko'rish",
+      "ctaSecondary": "Biz bilan bog'laning"
+    },
+    "stats": {
+      "experienceLabel": "Ishlab chiqarish tajribasi",
+      "experienceValue": "O'nlab yillar",
+      "productsLabel": "Mahsulot turlari",
+      "regionsLabel": "Yetkazib berish bozorlari",
+      "regionsValue": "Markaziy Osiyo",
+      "qualityLabel": "Partiyalar sifat nazoratidan o'tgan",
+      "qualityValue": "100%"
+    },
+    "featured": {
+      "title": "Mashhur mahsulotlar",
+      "subtitle": "Farfor izolyatorlar tanlovi — o'tkazuvchi, shtirli va tayanch turlari.",
+      "viewAll": "To'liq katalog"
+    },
+    "cta": {
+      "title": "Loyihangiz uchun izolyatorlar kerakmi?",
+      "subtitle": "Narx, ulgurji buyurtmalar yoki texnik xususiyatlar bo'yicha biz bilan bog'laning — tez javob beramiz.",
+      "call": "Qo'ng'iroq qilish",
+      "whatsapp": "WhatsApp orqali yozish"
+    }
   },
   "catalogue": {
     "title": "Mahsulotlar katalogi",
     "description": "Farfor izolyatorlar katalogi: o'tkazuvchi, shtirli va tayanch izolyatorlar.",
-    "viewDetails": "Batafsil"
+    "viewDetails": "Batafsil",
+    "search": "Mahsulot qidirish…",
+    "resultsCount": "{count} ta mahsulot topildi",
+    "noResults": "Qidiruvingizga mos mahsulot topilmadi."
   },
   "product": {
     "back": "Orqaga",
@@ -38,7 +75,8 @@
       "Har bir partiyani qat'iy sifat nazoratidan o'tkazish",
       "Katta buyurtmalarni tez bajarish",
       "Muhandislik jamoasining bevosita yordami"
-    ]
+    ],
+    "galleryTitle": "Bizning zavodimiz"
   },
   "contacts": {
     "title": "Aloqa",
@@ -49,10 +87,15 @@
     "emailLabel": "Email",
     "hoursLabel": "Ish vaqti",
     "hours": "Dush–Shan, 9:00–18:00",
-    "formNote": "Quyidagi telefon, WhatsApp yoki Telegram orqali biz bilan bog'laning — tez orada javob beramiz."
+    "formNote": "Quyidagi telefon, WhatsApp yoki Telegram orqali biz bilan bog'laning — tez orada javob beramiz.",
+    "quickTitle": "Biz bilan hoziroq bog'laning",
+    "callNow": "Qo'ng'iroq qilish",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram"
   },
   "footer": {
-    "rights": "Barcha huquqlar himoyalangan."
+    "rights": "Barcha huquqlar himoyalangan.",
+    "menu": "Menyu"
   },
   "notFound": {
     "title": "Sahifa topilmadi",

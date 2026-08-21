@@ -34,11 +34,11 @@
             </p>
 
             <div class="d-flex flex-column flex-sm-row ga-3">
-              <v-btn color="primary" size="x-large" to="/catalogue" variant="flat">
+              <v-btn color="primary" size="x-large" :to="lp('/catalogue')" variant="flat">
                 {{ t('home.hero.ctaPrimary') }}
                 <v-icon end>mdi-arrow-right</v-icon>
               </v-btn>
-              <v-btn class="hero-btn-outline" size="x-large" to="/contacts" variant="outlined">
+              <v-btn class="hero-btn-outline" size="x-large" :to="lp('/contacts')" variant="outlined">
                 {{ t('home.hero.ctaSecondary') }}
               </v-btn>
             </div>
@@ -77,7 +77,7 @@
 
       <v-row dense>
         <v-col v-for="product in featuredProducts" :key="product.id" cols="12" lg="3" md="4" sm="6">
-          <v-card class="product-card hover-lift h-100 d-flex flex-column" :to="`/catalogue/${product.id}`" variant="outlined">
+          <v-card class="product-card hover-lift h-100 d-flex flex-column" :to="lp(`/catalogue/${product.id}`)" variant="outlined">
             <div class="product-card-image">
               <v-img :alt="product.name" height="180" :src="product.image" />
             </div>
@@ -93,7 +93,7 @@
       </v-row>
 
       <div class="text-center mt-8">
-        <v-btn color="primary" size="large" to="/catalogue" variant="tonal">
+        <v-btn color="primary" size="large" :to="lp('/catalogue')" variant="tonal">
           {{ t('home.featured.viewAll') }}
         </v-btn>
       </div>
@@ -165,11 +165,13 @@ import { useDisplay } from 'vuetify'
 import { useI18n } from 'vue-i18n'
 import { usePageSeo } from '@/composables/usePageSeo'
 import { useLocalizedProducts } from '@/composables/useLocalizedProducts'
+import { useLocalePath } from '@/composables/useLocalePath'
 import { PHONE_TEL, WHATSAPP_URL } from '@/constants'
 
 const { mobile } = useDisplay()
 const { t, tm, rt } = useI18n()
 const { localizedProducts } = useLocalizedProducts()
+const lp = useLocalePath()
 
 usePageSeo(() => ({
   title: t('home.title'),

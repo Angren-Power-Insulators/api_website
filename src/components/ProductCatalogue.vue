@@ -55,7 +55,7 @@
         >
           <v-card
             class="product-card hover-lift d-flex flex-column h-100"
-            :to="`/catalogue/${product.id}`"
+            :to="lp(`/catalogue/${product.id}`)"
             variant="outlined"
           >
             <div class="product-card-image">
@@ -101,10 +101,12 @@ import { useI18n } from 'vue-i18n'
 import { useHead } from '@unhead/vue'
 import { useLocalizedProducts } from '@/composables/useLocalizedProducts'
 import { usePageSeo } from '@/composables/usePageSeo'
+import { useLocalePath } from '@/composables/useLocalePath'
 import { SITE_URL } from '@/constants'
 
 const { t } = useI18n()
 const { localizedProducts } = useLocalizedProducts()
+const lp = useLocalePath()
 
 const search = ref('')
 const activeCategory = ref('all')

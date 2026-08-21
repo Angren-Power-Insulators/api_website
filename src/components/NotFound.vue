@@ -3,15 +3,17 @@
     <div class="text-h2 font-weight-bold text-primary mb-4">404</div>
     <h1 class="text-h5 mb-4">{{ t('notFound.title') }}</h1>
     <p class="text-body-1 text-medium-emphasis mb-8">{{ t('notFound.message') }}</p>
-    <v-btn color="primary" to="/" variant="tonal">{{ t('notFound.backHome') }}</v-btn>
+    <v-btn color="primary" :to="lp('/')" variant="tonal">{{ t('notFound.backHome') }}</v-btn>
   </v-container>
 </template>
 
 <script setup>
 import { useI18n } from 'vue-i18n'
 import { useSeoMeta } from '@unhead/vue'
+import { useLocalePath } from '@/composables/useLocalePath'
 
 const { t } = useI18n()
+const lp = useLocalePath()
 
 useSeoMeta({
   title: () => t('notFound.title'),

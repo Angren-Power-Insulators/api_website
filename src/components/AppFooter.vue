@@ -40,10 +40,10 @@
         <v-col cols="6" md="2">
           <div class="text-overline footer-heading mb-3">{{ t('footer.menu') }}</div>
           <v-list bg-color="transparent" class="pa-0" density="compact">
-            <v-list-item class="px-0 footer-link" exact :title="t('nav.home')" to="/" />
-            <v-list-item class="px-0 footer-link" :title="t('nav.catalogue')" to="/catalogue" />
-            <v-list-item class="px-0 footer-link" :title="t('nav.about')" to="/about" />
-            <v-list-item class="px-0 footer-link" :title="t('nav.contacts')" to="/contacts" />
+            <v-list-item class="px-0 footer-link" exact :title="t('nav.home')" :to="lp('/')" />
+            <v-list-item class="px-0 footer-link" :title="t('nav.catalogue')" :to="lp('/catalogue')" />
+            <v-list-item class="px-0 footer-link" :title="t('nav.about')" :to="lp('/about')" />
+            <v-list-item class="px-0 footer-link" :title="t('nav.contacts')" :to="lp('/contacts')" />
           </v-list>
         </v-col>
 
@@ -99,9 +99,11 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
+import { useLocalePath } from '@/composables/useLocalePath'
 import { PHONE_TEL, PHONE_DISPLAY, EMAIL, WHATSAPP_URL, TELEGRAM_URL, INSTAGRAM_URL } from '@/constants'
 
 const { t } = useI18n()
+const lp = useLocalePath()
 
 const socials = [
   { title: 'Whatsapp', icon: 'mdi-whatsapp', href: WHATSAPP_URL },

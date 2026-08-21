@@ -1,7 +1,7 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import products from '@/data/products.js'
-import { DEFAULT_LOCALE } from '@/i18n'
+import { DEFAULT_LOCALE } from '@/constants'
 
 function localize (product, locale) {
   const content = product.content[locale] || product.content[DEFAULT_LOCALE]

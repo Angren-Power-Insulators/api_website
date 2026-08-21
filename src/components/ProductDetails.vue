@@ -62,7 +62,7 @@
   <v-container v-else class="py-16 text-center">
     <v-icon class="mb-4" color="grey-lighten-1" size="64">mdi-package-variant-closed</v-icon>
     <h1 class="text-h6 mb-4">{{ t('product.notFound') }}</h1>
-    <v-btn color="primary" to="/catalogue" variant="tonal">{{ t('product.back') }}</v-btn>
+    <v-btn color="primary" :to="lp('/catalogue')" variant="tonal">{{ t('product.back') }}</v-btn>
   </v-container>
 </template>
 
@@ -74,16 +74,18 @@ import { useHead } from '@unhead/vue'
 import { SITE_URL, PHONE_TEL, WHATSAPP_URL } from '@/constants'
 import { useLocalizedProduct } from '@/composables/useLocalizedProducts'
 import { usePageSeo } from '@/composables/usePageSeo'
+import { useLocalePath } from '@/composables/useLocalePath'
 
 // ---------- Load product ----------
 const route = useRoute()
 const { t } = useI18n()
+const lp = useLocalePath()
 const id = Number(route.params.id)
 const product = useLocalizedProduct(id)
 
 const breadcrumbs = computed(() => [
-  { title: t('nav.home'), to: '/' },
-  { title: t('nav.catalogue'), to: '/catalogue' },
+  { title: t('nav.home'), to: lp('/') },
+  { title: t('nav.catalogue'), to: lp('/catalogue') },
   { title: product.value?.name || t('product.notFound'), disabled: true },
 ])
 

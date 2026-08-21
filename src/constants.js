@@ -1,5 +1,10 @@
 export const SITE_URL = 'https://www.apinsulators.co'
 
+// Locale that is served unprefixed at "/" (crawlable default). Others live
+// under a "/en" / "/uz" prefix — see src/utils/localePath.js and router/index.js.
+export const SUPPORTED_LOCALES = ['ru', 'uz', 'en']
+export const DEFAULT_LOCALE = 'ru'
+
 export const PHONE_DISPLAY = '(998) 99-443-1177'
 export const PHONE_TEL = '+998994431177'
 export const EMAIL = 'info@apinsulators.co'

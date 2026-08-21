@@ -122,11 +122,11 @@
 
   <!-- Mobile quick-action bar -->
   <div class="quickbar d-flex d-md-none">
-    <router-link class="quickbar-item" to="/" exact-active-class="quickbar-item--active">
+    <router-link class="quickbar-item" :to="lp('/')" exact-active-class="quickbar-item--active">
       <v-icon size="22">mdi-home-outline</v-icon>
       <span>{{ t('quickbar.home') }}</span>
     </router-link>
-    <router-link class="quickbar-item" to="/catalogue" active-class="quickbar-item--active">
+    <router-link class="quickbar-item" :to="lp('/catalogue')" active-class="quickbar-item--active">
       <v-icon size="22">mdi-view-grid-outline</v-icon>
       <span>{{ t('quickbar.catalogue') }}</span>
     </router-link>
@@ -138,7 +138,7 @@
       <v-icon size="22">mdi-whatsapp</v-icon>
       <span>{{ t('quickbar.whatsapp') }}</span>
     </a>
-    <router-link class="quickbar-item" to="/contacts" active-class="quickbar-item--active">
+    <router-link class="quickbar-item" :to="lp('/contacts')" active-class="quickbar-item--active">
       <v-icon size="22">mdi-card-account-phone-outline</v-icon>
       <span>{{ t('quickbar.contacts') }}</span>
     </router-link>
@@ -149,22 +149,24 @@
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { useLocalePath } from '@/composables/useLocalePath'
 import { PHONE_TEL, PHONE_DISPLAY, WHATSAPP_URL, TELEGRAM_URL, INSTAGRAM_URL } from '@/constants'
 
 const router = useRouter()
 const { t } = useI18n()
+const lp = useLocalePath()
 
 const goHome = () => {
-  router.push('/')
+  router.push(lp('/'))
 }
 
 const drawer = ref(false)
 
 const navItems = computed(() => [
-  { to: '/', label: t('nav.home'), icon: 'mdi-home-outline' },
-  { to: '/catalogue', label: t('nav.catalogue'), icon: 'mdi-view-grid-outline' },
-  { to: '/about', label: t('nav.about'), icon: 'mdi-information-outline' },
-  { to: '/contacts', label: t('nav.contacts'), icon: 'mdi-card-account-phone-outline' },
+  { to: lp('/'), label: t('nav.home'), icon: 'mdi-home-outline' },
+  { to: lp('/catalogue'), label: t('nav.catalogue'), icon: 'mdi-view-grid-outline' },
+  { to: lp('/about'), label: t('nav.about'), icon: 'mdi-information-outline' },
+  { to: lp('/contacts'), label: t('nav.contacts'), icon: 'mdi-card-account-phone-outline' },
 ])
 
 // Elevate / blur the app-bar once the page has scrolled a little.

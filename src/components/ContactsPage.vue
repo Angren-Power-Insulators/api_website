@@ -108,11 +108,11 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
 import { usePageSeo } from '@/composables/usePageSeo'
-import { PHONE_TEL, PHONE_DISPLAY, EMAIL, WHATSAPP_URL, TELEGRAM_URL } from '@/constants'
+import { PHONE_TEL, PHONE_DISPLAY, EMAIL, WHATSAPP_URL, TELEGRAM_URL, LOCATION_LAT, LOCATION_LNG } from '@/constants'
 
 const { t } = useI18n()
 
-const mapSrc = 'https://www.google.com/maps?q=' + encodeURIComponent('Angren, Tashkent region, Uzbekistan') + '&output=embed'
+const mapSrc = `https://www.google.com/maps?q=${LOCATION_LAT},${LOCATION_LNG}&z=17&output=embed`
 
 usePageSeo(() => ({
   title: t('contacts.title'),

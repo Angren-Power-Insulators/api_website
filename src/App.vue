@@ -6,7 +6,7 @@
 
 <script setup>
 import { useHead } from '@unhead/vue'
-import { SITE_URL } from '@/constants'
+import { SITE_URL, PHONE_TEL, WHATSAPP_URL, TELEGRAM_URL, INSTAGRAM_URL, LOCATION_LAT, LOCATION_LNG } from '@/constants'
 
 const logoUrl = new URL('@/assets/logo/logo_api_icon.png', import.meta.url).href
 
@@ -21,17 +21,22 @@ useHead({
         url: SITE_URL,
         logo: logoUrl,
         image: logoUrl,
-        telephone: '+998994431177',
+        telephone: PHONE_TEL,
         address: {
           '@type': 'PostalAddress',
           addressLocality: 'Angren',
           addressRegion: 'Tashkent Region',
           addressCountry: 'UZ',
         },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: LOCATION_LAT,
+          longitude: LOCATION_LNG,
+        },
         sameAs: [
-          'https://wa.me/998998426389',
-          'https://telegram.me/notarious2',
-          'https://www.instagram.com/ap.insulators/',
+          WHATSAPP_URL,
+          TELEGRAM_URL,
+          INSTAGRAM_URL,
         ],
       }),
     },
